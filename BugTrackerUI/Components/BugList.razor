@@ -1,26 +1,32 @@
-﻿<h3>All Bugs</h3>
+﻿@if (Bugs.Count > 0)
+{
+    <h3>All Bugs</h3>
 
+    <table>
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Title</td>
+                <td>Description</td>
+                <td>Priority</td>
+            </tr>
+        </thead>
 
-<table>
-    <thead>
-        <tr>
-            <td>Id</td>
-            <td>Title</td>
-            <td>Description</td>
-            <td>Priority</td>
-        </tr>
-    </thead>
-
-    @foreach (var bug in Bugs)
-    {
-        <tr>
-            <td>@bug.Id</td>
-            <td>@bug.Title</td>
-            <td>@bug.Description</td>
-            <td>@bug.Priority</td>
-        </tr>
-    }
-</table>
+        @foreach (var bug in Bugs)
+        {
+            <tr>
+                <td>@bug.Id</td>
+                <td>@bug.Title</td>
+                <td>@bug.Description</td>
+                <td>@bug.Priority</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No bugs reported yet!</p>
+}
 
 @code {
     [Inject]
